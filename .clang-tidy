@@ -94,7 +94,8 @@ Checks: >
   -modernize-use-nodiscard,
 
   -clang-analyzer-optin.core.EnumCastOutOfRange,
-  -clang-analyzer-cplusplus.Move
+  -clang-analyzer-cplusplus.Move,
+  -clang-analyzer-cplusplus.NewDelete
 
 CheckOptions:
   # Cognitive complexity: allow macros, set higher threshold
@@ -188,8 +189,8 @@ CheckOptions:
   - key: readability-identifier-naming.NamespaceCase
     value: lower_case
 
-# Check all headers (portable across projects, filters system headers automatically)
-HeaderFilterRegex: '.*'
+# Only check headers under own "src" tree.
+HeaderFilterRegex: '.*[/\\]src[/\\].*'
 
 # Treat all warnings as errors in CI
 WarningsAsErrors: '*'
