@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
 
+if(POLICY CMP0167)
+    cmake_policy(SET CMP0167 OLD)
+endif()
+
 set(PROJECT_NAME_INPUT "Project" CACHE STRING "Project name")
 set(PROJECT_DESCRIPTION_INPUT "C++ Project" CACHE STRING "Project description")
 set(PROJECT_VERSION_INPUT "0.1.0" CACHE STRING "Project version")
@@ -26,6 +30,9 @@ file(GLOB PROJECT_SOURCES CONFIGURE_DEPENDS
 add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
 )
+
+find_package(Boost 1.92 REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::headers)
 
 if(WIN32)
     target_compile_definitions(${PROJECT_NAME} PRIVATE
