@@ -1,0 +1,17 @@
+name: 'Setup C++ dependencies'
+description: 'Installs and configures external C++ dependencies'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Install Boost
+      uses: MarkusJx/install-boost@v2
+      id: install-boost
+      with:
+        boost_version: 1.92.0
+
+    - name: Export Boost environment
+      shell: bash
+      run: |
+        echo "BOOST_ROOT=${{ steps.install-boost.outputs.BOOST_ROOT }}" >> "$GITHUB_ENV"
