@@ -1,0 +1,18 @@
+# CMake build tree
+debug/
+release/
+build/
+cmake-build-*/
+out/
+
+# Local IDE/editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
