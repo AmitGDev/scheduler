@@ -75,6 +75,7 @@ runs:
         }
 
         $validOs = @(
+            "ubuntu-26.04",  # TEMPORARY: remove after ubuntu-latest migrates (2026-11-19)
             "ubuntu-latest",
             "windows-latest",
             "macos-latest"
